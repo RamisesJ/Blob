@@ -172,9 +172,11 @@
           <text value="Salvar"/>
         </properties>
       </component>
-      <component id="90354" class="javax.swing.JLabel" binding="showImagem">
+      <component id="2e446" class="javax.swing.JLabel" binding="showImagem">
         <constraints>
-          <grid row="3" column="3" row-span="1" col-span="2" vsize-policy="2" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="3" column="3" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="173" height="130"/>
+          </grid>
         </constraints>
         <properties>
           <text value="Label"/>

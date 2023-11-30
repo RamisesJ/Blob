@@ -5,6 +5,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -24,6 +26,7 @@ public class TelaDeCadastro extends JDialog {
     private JButton btCancelar;
     private JButton btSalvar;
     private JPanel tela;
+    String path2 = null;
 
     public TelaDeCadastro(JFrame parent) {
         super(parent);
@@ -77,6 +80,7 @@ public class TelaDeCadastro extends JDialog {
                 String path = arquivoSelecionado.getAbsolutePath();
                 System.out.println(""+filename);
                 System.out.println(""+ path);
+                path2 = path;
 
             }
         });
@@ -93,7 +97,7 @@ public class TelaDeCadastro extends JDialog {
         String cor = tf_cor.getText();
         String idade = tf_idade.getText();
         String historia = tf_historia.getText();
-//        byte [] imagem =;
+        Icon imagemPet = showImagem.getIcon();
         if (nome.isEmpty() || raca.isEmpty() || tamanho.isEmpty() || sexo.isEmpty() || cor.isEmpty() || historia.isEmpty() ){
             JOptionPane.showConfirmDialog(this, "Preencha todas as informações", "Tente novamente", JOptionPane.ERROR_MESSAGE);
             return;
@@ -109,17 +113,18 @@ public class TelaDeCadastro extends JDialog {
     public Pet pet;
     private Pet inserirPetNoBanco(String nome, String raca, String tamanho, String sexo, String cor, String idade, String historia) {
         Pet pet = null;
+        FileInputStream fis  =null;
         final String DB_URL = "jdbc:mysql://localhost:3306/pets";
         final String USERNAME = "root";
         final String PASSWORD = "Ramises229@";
         try{
             Connection con = DriverManager.getConnection(DB_URL,USERNAME,PASSWORD);
             try {
-                fis = new FileInputStream(path);
+//                fis = new FileInputStream(path);
 //                Blob imagemBlob = con.createBlob();
 //                imagemBlob.setBytes(1, pets.getImagem());
                 //Aqui já é a inserçao)
-                PreparedStatement pstmt = con.prepareStatement("INSERT INTO pets (nome, raca, tamanho, sexo, cor, idade, historia) VALUES (?, ?, ?, ?, ?, ?, ?) ");
+                PreparedStatement pstmt = con.prepareStatement("INSERT INTO pets (nome, raca, tamanho, sexo, cor, idade, historia, imagem) VALUES (?, ?, ?, ?, ?, ?, ?, ?) ");
                 pstmt.setString(1, nome);
                 pstmt.setString(2, raca);
                 pstmt.setString(3, tamanho);
@@ -127,7 +132,8 @@ public class TelaDeCadastro extends JDialog {
                 pstmt.setString(5, cor);
                 pstmt.setString(6, idade);
                 pstmt.setString(7, historia);
-//                pstmt.setBlob(8, imagemBlob);
+                InputStream is = new FileInputStream(new File(path2));
+                pstmt.setBlob(8, is);
 
                 int addedRows = pstmt.executeUpdate();
                 if (addedRows >0){
@@ -139,7 +145,11 @@ public class TelaDeCadastro extends JDialog {
                     pet.cor = cor;
                     pet.idade = idade;
                     pet.historia = historia;
+//                    pet.imagemPet = imagempet;
+
                 }
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException(e);
             } finally {
                 con.close();
             }

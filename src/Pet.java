@@ -1,3 +1,5 @@
+import javax.swing.*;
+
 public class Pet {
     public String nome;
     public String raca;
@@ -6,5 +8,5 @@ public class Pet {
     public String cor;
     public String idade;
     public String historia;
-//    public byte [] imagem;
+    public Icon imagemPet;
 }
