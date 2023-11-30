@@ -1,20 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ebfecffe-650d-42d8-956f-47583010121b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_j_8_2_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PlanoB.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Pet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TelaDeCadastro.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TelaDeCadastro.java" afterDir="false" />
+    <list default="true" id="ebfecffe-650d-42d8-956f-47583010121b" name="Changes" comment="Essa é minha nova tentativa">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TelaDeCadastro.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/TelaDeCadastro.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TelaDeCadastro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TelaDeCadastro.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +56,14 @@
       <option name="presentableId" value="Default" />
       <updated>1701344527241</updated>
     </task>
+    <task id="LOCAL-00001" summary="Essa é minha nova tentativa">
+      <created>1701355320502</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1701355320502</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -78,5 +76,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Essa é minha nova tentativa" />
+    <option name="LAST_COMMIT_MESSAGE" value="Essa é minha nova tentativa" />
   </component>
 </project>

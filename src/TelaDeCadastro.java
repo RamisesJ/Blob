@@ -1,7 +1,10 @@
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -46,8 +49,41 @@ public class TelaDeCadastro extends JDialog {
             }
         });
 
+//        setVisible(true);
+        btUploadImage.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFileChooser jfile = new JFileChooser();
+                jfile.setCurrentDirectory(new File(System.getProperty("user.home")));
+
+                FileNameExtensionFilter filter = new FileNameExtensionFilter("*.Image","jpg","png","jpeg");
+                jfile.addChoosableFileFilter(filter);
+
+                int result = jfile.showSaveDialog(null);
+                System.out.println(""+result);
+
+                File arquivoSelecionado = jfile.getSelectedFile();
+                String filename = arquivoSelecionado.getName();
+                if(filename.endsWith(".jpg")||filename.endsWith(".JPG")||filename.endsWith(".png")||filename.endsWith(".PNG")||filename.endsWith(".jpeg")||filename.endsWith(".JPEG")){
+                    String path = arquivoSelecionado.getAbsolutePath();
+                    ImageIcon imagem = new ImageIcon(path);
+
+                    Image img = imagem.getImage();
+                    Image novaImagem = img.getScaledInstance(showImagem.getWidth(),showImagem.getHeight(),Image.SCALE_SMOOTH);
+
+                    ImageIcon mostrarImagem = new ImageIcon(novaImagem);
+                    showImagem.setIcon(mostrarImagem);
+                }
+                String path = arquivoSelecionado.getAbsolutePath();
+                System.out.println(""+filename);
+                System.out.println(""+ path);
+
+            }
+        });
+
         setVisible(true);
     }
+
 
     private void cadastroPet() {
         String nome = tf_name.getText();
@@ -79,6 +115,7 @@ public class TelaDeCadastro extends JDialog {
         try{
             Connection con = DriverManager.getConnection(DB_URL,USERNAME,PASSWORD);
             try {
+                fis = new FileInputStream(path);
 //                Blob imagemBlob = con.createBlob();
 //                imagemBlob.setBytes(1, pets.getImagem());
                 //Aqui já é a inserçao)
@@ -125,5 +162,3 @@ public class TelaDeCadastro extends JDialog {
     }
 
 }
-
-
